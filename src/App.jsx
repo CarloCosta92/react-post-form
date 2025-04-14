@@ -19,8 +19,7 @@ function App() {
     setFormData((formData) => ({
       ...formData,
 
-      // fix per la checkbox!!
-      [name]: type === "checkbox" ? checked : value,
+      [name]: type === 'checkbox' ? checked : value,
     }));
   }
 
@@ -86,7 +85,7 @@ function App() {
 
         <div>
           <label htmlFor="body">inserisci corpo del post </label>
-          <input
+          <textarea
             type="text"
             name="body"
             value={formData.body}
