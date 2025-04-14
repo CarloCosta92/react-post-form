@@ -14,71 +14,74 @@ function App() {
 
   //funzione per gestire inserimento
   function handleFormData(e) {
+    const { name, value, type, checked } = e.target;
     setFormData((formData) => ({
       ...formData,
       [e.target.name]: e.target.value,
     }));
   }
 
-
-
+  //inserimento endpoint per invio nuovo post
+  const endpoint = "https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts";
 
 
   return (
     <>
       <h1>React Post Form</h1>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="author">inserisci autore </label>
+          <input
+            type="text"
+            name="author"
+            value={formData.author}
+            onChange={handleFormData}
+            placeholder="Inserisci autore"
 
-      <div>
-        <label htmlFor="author">inserisci autore </label>
-        <input
-          type="text"
-          name="author"
-          value={formData.author}
-          onChange={handleFormData}
-          placeholder="Inserisci autore"
+          />
 
-        />
+          <hr />
+        </ div>
 
-        <hr />
-      </ div>
+        <div>
+          <label htmlFor="title">inserisci titolo </label>
+          <input
+            type="text"
+            name="title"
+            value={formData.title}
+            onChange={handleFormData}
+            placeholder="Inserisci titolo"
 
-      <div>
-        <label htmlFor="title">inserisci titolo </label>
-        <input
-          type="text"
-          name="title"
-          value={formData.title}
-          onChange={handleFormData}
-          placeholder="Inserisci titolo"
+          />
 
-        />
+          <hr />
+        </ div>
 
-        <hr />
-      </ div>
+        <div>
+          <label htmlFor="body">inserisci corpo del post </label>
+          <input
+            type="text"
+            name="body"
+            value={formData.body}
+            onChange={handleFormData}
+            placeholder="Inserisci corpo del post"
 
-      <div>
-        <label htmlFor="body">inserisci corpo del post </label>
-        <input
-          type="text"
-          name="body"
-          value={formData.body}
-          onChange={handleFormData}
-          placeholder="Inserisci corpo del post"
+          />
 
-        />
+          <hr />
+        </ div>
 
-        <hr />
-      </ div>
-
-      <label>
-        Pubblico:
-        <input
-          type="checkbox"
-          name="public"
-          checked={formData.public}
-          onChange={handleFormData}
-        />
-      </label>
+        <label>
+          Pubblico:
+          <input
+            type="checkbox"
+            name="public"
+            checked={formData.public}
+            onChange={handleFormData}
+          />
+        </label>
+        <button type="submit">Invia</button>
+      </form>
 
     </>
   )
