@@ -18,7 +18,9 @@ function App() {
     const { name, value, type, checked } = e.target;
     setFormData((formData) => ({
       ...formData,
-      [e.target.name]: e.target.value,
+
+      // fix per la checkbox!!
+      [name]: type === "checkbox" ? checked : value,
     }));
   }
 
