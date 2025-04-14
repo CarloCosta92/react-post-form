@@ -25,29 +25,6 @@ function App() {
   //inserimento endpoint per invio nuovo post
   const endpoint = "https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts";
 
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    axios
-      .post(endpoint, formData)
-      .then((response) => {
-        console.log('Dati inviati con successo:', response.data);
-
-      })
-      .catch((error) => {
-        console.error('Errore durante l\'invio dei dati:', error);
-
-      });
-
-    setFormData({
-      author: '',
-      title: '',
-      body: '',
-      public: true,
-    });
-  }
-
-
   return (
     <>
       <h1>React Post Form</h1>
